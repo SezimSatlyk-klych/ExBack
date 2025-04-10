@@ -1,0 +1,19 @@
+{% extends "notes/base.html" %}
+
+
+{% block content %}
+<div class="container">
+    <h1>{{ note.title }}</h1>
+    <p>{{ note.content }}</p>
+    
+    {% if note.image %}
+        <img src="{{ note.image.url }}" alt="Note Image">
+    {% else %}
+        <p>No image available</p>
+    {% endif %}
+    
+    <div class="center-link">
+        <a href="{% url 'note_list' %}" class="btn">Back to Notes List</a>
+    </div>
+</div>
+{% endblock %}

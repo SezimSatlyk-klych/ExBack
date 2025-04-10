@@ -1,0 +1,10 @@
+{% extends 'notes/base.html'%}
+
+{% block content %}
+    <h1>Welcome to your Profile, {{ user.username }}</h1>
+    <p>You can perform the following operations:</p>
+    <ul>
+        <li><a href="#">Change E-Mail Address</a></li>
+        <li><a href="#">Add Profile Picture</a></li>
+    </ul>
+{% endblock %}

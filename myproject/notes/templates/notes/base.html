@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="{% static 'notes/styles.css' %}">
+</head>
+<body>
+
+  
+    <nav class="navbar">
+        <ul class="nav-links">
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'note_list' %}">All Notes</a></li>
+            <li><a href="{% url 'create_note' %}">Create Note</a></li> 
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'logout_confirm' %}">Log out</a></li>  
+        {% else %}
+            <li><a href="{% url 'signup' %}">Sign up</a></li>
+            <li><a href="{% url 'login' %}">Sign in</a></li>
+        {% endif %}
+        
+        </ul>
+    </nav>
+
+   
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends "notes/base.html" %}
+
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to Notes App</h1>
+    <div class="center-link">
+        <a href="{% url 'note_list' %}" class="btn">View Notes</a>
+    </div>
+</div>
+{% endblock %}
