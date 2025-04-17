@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from myproject.media_storage import MediaStorage
 
 class Note(models.Model):
     visibility_choices = [
@@ -16,7 +16,7 @@ class Note(models.Model):
                                   choices=visibility_choices,
                                   default='private'
                                   )
-    image = models.ImageField(upload_to="note/images",blank=True,null=True)
+    image = models.ImageField(storage=MediaStorage() ,upload_to="note/images",blank=True,null=True)
     
     def __str__(self):
         return  ("Title: " + self.title + 
